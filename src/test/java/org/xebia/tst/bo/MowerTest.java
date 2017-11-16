@@ -39,8 +39,8 @@ public class MowerTest {
 	}
 	@Test
 	public void test_moveMower_outside(){
-		Coordonnees coordonnees =new Coordonnees(6, 5);
-		mower = new Mower(coordonnees, Orientation.E, false);
+		Coordonnees coordonneesOutside =new Coordonnees(6, 5);
+		mower = new Mower(coordonneesOutside, Orientation.E, false);
 		mower.moveMower(coordonneesBorder);
 		assertEquals(mower.getCoordonnees().getY(), 5);
 		assertEquals(mower.getCoordonnees().getX(), 6);

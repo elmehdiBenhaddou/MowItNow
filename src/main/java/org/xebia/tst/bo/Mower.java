@@ -57,12 +57,7 @@ public class Mower {
 	 * 
 	 */
 	public void moveMower(Coordonnees limits){
-		//test si la tondeuse est dehors du rectangle
-		if(this.coordonnees.getX() > limits.getX() || this.coordonnees.getY() > limits.getY() 
-				 || this.coordonnees.getX() < 0 || this.coordonnees.getY() < 0){
-			this.stoped = true;
-			return;
-		}
+	
 	  switch (this.orientation) {
 	         case  N :
 	            coordonnees.moveToNorth();
@@ -77,6 +72,11 @@ public class Mower {
 		            coordonnees.moveToEast();
 		            break;       
 	  }
+		//test si la tondeuse est dehors du rectangle
+		if(this.coordonnees.getX() > limits.getX() || this.coordonnees.getY() > limits.getY() 
+				 || this.coordonnees.getX() < 0 || this.coordonnees.getY() < 0){
+			this.stoped = true;
+		}
 	}
 
 	@Override
