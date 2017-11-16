@@ -7,4 +7,5 @@ package org.xebia.tst.bo;
  */
 public class CoordonneesTest {
 
+	private Coordonnees coordonnees;
 }
