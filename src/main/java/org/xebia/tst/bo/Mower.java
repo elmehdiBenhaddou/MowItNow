@@ -56,7 +56,7 @@ public class Mower {
 	 * methode pour faire bouger la tondeuse
 	 * 
 	 */
-	public void moveMower(Coordonnees limits){
+	public void moveMower(){
 	
 	  switch (this.orientation) {
 	         case  N :
@@ -72,11 +72,6 @@ public class Mower {
 		            coordonnees.moveToEast();
 		            break;       
 	  }
-		//test si la tondeuse est dehors du rectangle
-		if(this.coordonnees.getX() > limits.getX() || this.coordonnees.getY() > limits.getY() 
-				 || this.coordonnees.getX() < 0 || this.coordonnees.getY() < 0){
-			this.stoped = true;
-		}
 	}
 
 	@Override

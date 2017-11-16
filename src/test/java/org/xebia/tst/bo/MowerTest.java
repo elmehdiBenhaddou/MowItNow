@@ -15,7 +15,6 @@ public class MowerTest {
 
 	private Mower mower;
 	
-	private Coordonnees  coordonneesBorder=new Coordonnees(5, 5);
 
 	@Test
 	public void test_creation(){
@@ -31,21 +30,10 @@ public class MowerTest {
 	public void test_moveMower(){
 		Coordonnees coordonnees =new Coordonnees(4, 5);
 		mower = new Mower(coordonnees, Orientation.E, false);
-		mower.moveMower(coordonneesBorder);
+		mower.moveMower();
 		assertEquals(mower.getCoordonnees().getY(), 5);
 		assertEquals(mower.getCoordonnees().getX(), 5);
 		assertEquals(mower.getOrientation(), Orientation.E);
-		assertEquals(mower.isStoped(), false);
 	}
-	@Test
-	public void test_moveMower_outside(){
-		Coordonnees coordonneesOutside =new Coordonnees(6, 5);
-		mower = new Mower(coordonneesOutside, Orientation.E, false);
-		mower.moveMower(coordonneesBorder);
-		assertEquals(mower.getCoordonnees().getY(), 5);
-		assertEquals(mower.getCoordonnees().getX(), 6);
-		assertEquals(mower.getOrientation(), Orientation.E);
-		assertEquals(mower.isStoped(), true);
-		
-	}
+	
 }

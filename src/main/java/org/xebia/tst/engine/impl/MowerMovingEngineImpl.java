@@ -18,14 +18,13 @@ public class MowerMovingEngineImpl implements MowerMovingEngine {
 	@Override
 	public Mower startMovingMower(Rules rules,Mower mower,char[] commandes,Coordonnees limits) {
 		for(int i = 0 ; i< commandes.length ; i++){
-//			if(mower.isStoped()){
-//				return mower;
-//			}
+			if(mower.getCoordonnees().getX() > limits.getX() || mower.getCoordonnees().getY() > limits.getY() 
+					 || mower.getCoordonnees().getX() < 0 || mower.getCoordonnees().getY() < 0){
+			   mower.setStoped(true);
+			   return mower;
+			}	
 			if(commandes[i] == 'A'){
-				if(mower.isStoped()){
-					return mower;
-				}
-				mower.moveMower(limits);
+				mower.moveMower();
 			}else{
 				mower.setOrientation(rules.getResult(mower.getOrientation().toString()+commandes[i]));
 			}

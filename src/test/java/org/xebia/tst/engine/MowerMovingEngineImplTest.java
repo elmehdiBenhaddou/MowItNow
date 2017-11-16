@@ -62,7 +62,17 @@ public class MowerMovingEngineImplTest {
 	  assertEquals(mower.getCoordonnees().getX(), 1);
 	  assertEquals(mower.getCoordonnees().getY(), 6);
 	  assertEquals(mower.getOrientation(), Orientation.N);
-	  assertEquals(mower.isStoped(), true);
+  }
+  
+  @Test
+  public void test_startMovingMower_mower_outside_in_creation() {
+	  Coordonnees  coordonneesBorder=new Coordonnees(5, 5);
+	  Coordonnees coordonnees =new Coordonnees(6, 2);
+	  Mower  mower = new Mower(coordonnees, Orientation.N, false);
+	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAAAAA".toCharArray(), coordonneesBorder);
+	  assertEquals(mower.getCoordonnees().getX(), 6);
+	  assertEquals(mower.getCoordonnees().getY(), 2);
+	  assertEquals(mower.getOrientation(), Orientation.N);
   }
 
 }
