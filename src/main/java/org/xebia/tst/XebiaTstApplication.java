@@ -18,7 +18,7 @@ public class XebiaTstApplication {
 
 	 public static String RULES_FILE_PATH;
 	 public static Rules RULES;
-	 
+	  
 		public static void main(String[] args) throws Exception {
 			//set rules path file
 			 //RULES_FILE_PATH=args[0];

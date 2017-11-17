@@ -16,10 +16,11 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.multipart.MultipartFile;
 import org.xebia.tst.bo.Orientation;
+import org.xebia.tst.exceptions.ErrorsMessages;
 import org.xebia.tst.exceptions.FileParsException;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest 
 public class MowersFileParserImplTest {
 
 	@Autowired
@@ -33,7 +34,7 @@ public class MowersFileParserImplTest {
 	
 	@Value("${prop.mower.definition.pattern}")
 	private String mowerDefPattern;
-	
+	 
 	@Test
 	public void test_pars_file_nominal() throws IOException, FileParsException{
 		
@@ -57,7 +58,7 @@ public class MowersFileParserImplTest {
 		    try {
 			  mowersFileParser.parsFile(multipartFile);
 			} catch (FileParsException e) {
-				   assertEquals(e.getMessage(), "Empty file");
+				   assertEquals(e.getMessage(), ErrorsMessages.EMPTY_FILE_ERROR_MSG);
 			}
 	}
 	
@@ -68,7 +69,7 @@ public class MowersFileParserImplTest {
 		    try {
 			  mowersFileParser.parsFile(multipartFile);
 			} catch (FileParsException e) {
-				   assertEquals(e.getMessage(), "File definition error");
+				   assertEquals(e.getMessage(), ErrorsMessages.FILE_DEF_ERROR_MSG);
 			}
 	}
 	
@@ -79,7 +80,7 @@ public class MowersFileParserImplTest {
 		    try {
 			  mowersFileParser.parsFile(multipartFile);
 			} catch (FileParsException e) {
-				   assertEquals(e.getMessage(), "Error border point definition  (5 A) ==> Correct Pattern : "+borderCoordDefPattern);
+				   assertEquals(e.getMessage(), String.format(ErrorsMessages.BORDER_DEF_ERROR_MSG ,"5 A", borderCoordDefPattern));
 			}
 	}
 	
@@ -91,7 +92,7 @@ public class MowersFileParserImplTest {
 		    try {
 			  mowersFileParser.parsFile(multipartFile);
 			} catch (FileParsException e) {
-				   assertEquals(e.getMessage(), "Error to define mower  (1 5 R) ==> Correct Pattern : "+mowerDefPattern);
+				   assertEquals(e.getMessage(), String.format(ErrorsMessages.MOWER_DEF_ERROR_MSG ,"1 5 R", mowerDefPattern));
 			}
 	}
 	@Test
@@ -101,7 +102,7 @@ public class MowersFileParserImplTest {
 		    try {
 			  mowersFileParser.parsFile(multipartFile);
 			} catch (FileParsException e) {
-				   assertEquals(e.getMessage(), "Error to define mower orders  (MMMDDD) ==> Correct Pattern : "+ordersDefPattern);
+				   assertEquals(e.getMessage(), String.format(ErrorsMessages.ORDER_DEF_ERROR_MSG ,"MMMDDD", ordersDefPattern));
 			}
 	}
 }
