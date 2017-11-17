@@ -27,7 +27,7 @@ public class RulesLoaderImpl implements RulesLoader{
 	private String ruleDefPattern;
 
 	protected static final Logger LOGGER = Logger.getLogger(RulesLoaderImpl.class.getName());
-	
+	 
 	public Rules loadRules() {
 		Rules rules=new Rules();
 		try (Stream<String> stream = Files.lines(Paths.get(XebiaTstApplication.RULES_FILE_PATH))) {

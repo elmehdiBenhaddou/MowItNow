@@ -17,13 +17,13 @@ import org.xebia.tst.parser.MowersBag;
 import org.xebia.tst.parser.MowersFileParser;
 
 /**
- * 
+ * L'implementation du parseur des fichiers des tondeuses
  * 
  * @author elmehdi
  *
  */
 @Component
-public class MowersFileParserImpl implements MowersFileParser{
+public class MowersFileParserImpl implements MowersFileParser{ 
 	
 	
 	@Value("${prop.orders.definition.pattern}")
@@ -46,16 +46,16 @@ public class MowersFileParserImpl implements MowersFileParser{
 		}catch (IOException e) {
 			throw new RuntimeException("I/O Exception :" + e.getMessage());
 		}
-        String[] lines = content.split("\\r?\\n");
+        String[] lines = content.split("\\r?\\n"); 
         MowersBag mowersWrapper = new MowersBag();
         List<MowerAndOrdersWrapper> mowersAndOrders = new ArrayList<MowerAndOrdersWrapper>();
-        //verifier le nombre de lines
-        if(lines.length % 2 == 0){
+        //verifier le nombre de lines 
+        if(lines.length % 2 == 0){ 
         	throw new FileParsException("File definition error" );
 	     }
-        //lire la limite du gazon
+        //lire la limite du gazon 
         if(!lines[0].matches(borderCoordDefPattern)){
-        	 throw new FileParsException("Error Border point definition "+ lines[0]+"; Correct Pattern :" + borderCoordDefPattern);
+        	 throw new FileParsException(String.format("Error border point definition  (%s) ==> Correct Pattern : %s" ,lines[0], borderCoordDefPattern));
         }
         StringTokenizer st  = new StringTokenizer(lines[0]," ", false);
         int limitX = Integer.parseInt(st.nextElement().toString());
@@ -64,7 +64,7 @@ public class MowersFileParserImpl implements MowersFileParser{
         //construction des tondeuses
         for(int i =1 ; i < lines.length ; i = i + 2){
         	if(!lines[i].matches(mowerDefPattern)){
-        		throw new FileParsException("Error to define Mower " + lines[i] +"; Correct Pattern :" + mowerDefPattern);
+           	 throw new FileParsException(String.format("Error to define mower  (%s) ==> Correct Pattern : %s" ,lines[i], mowerDefPattern));
         	}
         	st  = new StringTokenizer(lines[i]," ", false);
         	MowerAndOrdersWrapper mowerWrapper= new MowerAndOrdersWrapper();
@@ -73,7 +73,7 @@ public class MowersFileParserImpl implements MowersFileParser{
         	mowerWrapper.setMower(mower);
         	//set les commandes
         	if(!lines[i+1].matches(ordersDefPattern)){
-        		throw new FileParsException("Error to define mower orders :  " + lines[i+1] +"; Correct Pattern :" + ordersDefPattern);
+        		throw new FileParsException(String.format("Error to define mower orders  (%s) ==> Correct Pattern : %s" ,lines[i+1], ordersDefPattern));
         	}
         	mowerWrapper.setOrders(lines[i+1].toCharArray());
         	mowersAndOrders.add(mowerWrapper);

@@ -17,7 +17,7 @@ public class MowerAndOrdersWrapper {
 
 	public Mower getMower() {
 		return mower;
-	}
+	} 
 
 	public void setMower(Mower mower) {
 		this.mower = mower;
@@ -26,7 +26,7 @@ public class MowerAndOrdersWrapper {
 	public char[] getOrders() {
 		return orders;
 	}
-
+ 
 	public void setOrders(char[] orders) {
 		this.orders = orders;
 	}

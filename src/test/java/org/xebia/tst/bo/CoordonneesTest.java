@@ -26,7 +26,7 @@ public class CoordonneesTest {
 		coordonnees=new Coordonnees(5, 7);
 		coordonnees.moveToNorth();
 		assertEquals(coordonnees.getX(), 5);
-		assertEquals(coordonnees.getY(), 8);
+		assertEquals(coordonnees.getY(), 8); 
 	}
 	
 	@Test

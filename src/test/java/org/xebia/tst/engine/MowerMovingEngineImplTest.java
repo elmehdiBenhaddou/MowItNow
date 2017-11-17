@@ -22,7 +22,7 @@ import org.xebia.tst.loaders.rules.Rules;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MowerMovingEngineImplTest {
-
+ 
   @Autowired
   private MowerMovingEngine mowerMovingEngine;
   
