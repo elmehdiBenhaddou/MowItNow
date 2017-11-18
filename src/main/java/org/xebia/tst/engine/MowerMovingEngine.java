@@ -12,13 +12,14 @@ import org.xebia.tst.loaders.rules.Rules;
  */
 public interface MowerMovingEngine {
 
-	 /**
-	  * 
-	  * 
-	  * @param rules
-	  * @param mower
-	  * @param commandes
-	  * @return
-	  */
-	 Mower startMovingMower(Rules rules ,Mower mower , char[] commandes,Coordonnees limits);
+	/**
+	 * 
+	 * 
+	 * @param rules
+	 * @param mower
+	 * @param commandes
+	 * @param borderCoord
+	 * @return
+	 */
+	 Mower startMovingMower(Rules rules ,Mower mower , char[] commandes,Coordonnees borderCoord);
 }

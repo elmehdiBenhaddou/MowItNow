@@ -1,0 +1,8 @@
+NG=W
+ND=E
+WG=S
+WD=N
+SG=E
+SD=W
+EG=N
+ED=S

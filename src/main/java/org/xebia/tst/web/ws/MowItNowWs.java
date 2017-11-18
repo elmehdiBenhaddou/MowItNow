@@ -1,4 +1,4 @@
-package org.xebia.tst.web;
+package org.xebia.tst.web.ws;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,18 @@ import org.xebia.tst.exceptions.FileParsException;
 import org.xebia.tst.parser.MowerAndOrdersWrapper;
 import org.xebia.tst.parser.MowersBag;
 import org.xebia.tst.parser.MowersFileParser;
-
+/**
+ * 
+ * web services pour dialoguer aver l'appli
+ * 
+ * 
+ * 
+ * 
+ * @author elmehdi
+ *
+ */
 @RestController
-@RequestMapping("mowItNow")
+@RequestMapping("/v1/mowItNow")
 public class MowItNowWs {
 
 	@Autowired
@@ -35,7 +44,7 @@ public class MowItNowWs {
 
 
 	/**
-	  * web service qui attends un message Json en entrée qui represente les tondeuses
+	  * web service qui attend un message Json en entrée qui represente les tondeuses
 	 * et retourne les positions aprés deplacement de ces tondeuses 
 	 * @param mowersToMove
 	 * @return
@@ -57,7 +66,7 @@ public class MowItNowWs {
 	}
 	/**
 	 * 
-	 * web service qui attends un fichier txt en entrée qui represente les tondeuses
+	 * web service qui attend un fichier txt en entrée qui represente les tondeuses
 	 * et retourne les positions aprés deplacement de ces tondeuses
 	 * 
 	 * @param file
@@ -78,4 +87,5 @@ public class MowItNowWs {
 			}
 		return movedMowers;
     }
+	
 }

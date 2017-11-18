@@ -11,16 +11,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.multipart.MultipartFile;
 import org.xebia.tst.bo.Orientation;
 import org.xebia.tst.exceptions.ErrorsMessages;
 import org.xebia.tst.exceptions.FileParsException;
+import org.xebia.tst.parser.impl.MowersFileParserImpl;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest 
+@Import(MowersFileParserImpl.class)
+@TestPropertySource(locations="classpath:/application.properties")
 public class MowersFileParserImplTest {
 
 	@Autowired

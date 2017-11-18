@@ -6,11 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.xebia.tst.bo.Coordonnees;
 import org.xebia.tst.bo.Mower;
 import org.xebia.tst.bo.Orientation;
+import org.xebia.tst.engine.impl.MowerMovingEngineImpl;
 import org.xebia.tst.loaders.rules.Rules;
 
 /**
@@ -20,7 +22,8 @@ import org.xebia.tst.loaders.rules.Rules;
  *
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@Import(MowerMovingEngineImpl.class)
+@TestPropertySource(locations="classpath:/application.properties")
 public class MowerMovingEngineImplTest {
  
   @Autowired
@@ -62,6 +65,7 @@ public class MowerMovingEngineImplTest {
 	  assertEquals(mower.getCoordonnees().getX(), 1);
 	  assertEquals(mower.getCoordonnees().getY(), 6);
 	  assertEquals(mower.getOrientation(), Orientation.N);
+	  assertEquals(mower.isStoped(), true);
   }
   
   @Test
@@ -73,6 +77,7 @@ public class MowerMovingEngineImplTest {
 	  assertEquals(mower.getCoordonnees().getX(), 6);
 	  assertEquals(mower.getCoordonnees().getY(), 2);
 	  assertEquals(mower.getOrientation(), Orientation.N);
+	  assertEquals(mower.isStoped(), true);
   }
 
 }
