@@ -2,7 +2,7 @@ package org.xebia.tst.parser;
 
 import java.util.List;
 
-import org.xebia.tst.bo.Coordonnees;
+import org.xebia.tst.bo.Point;
 
 /**
  * 
@@ -12,15 +12,15 @@ import org.xebia.tst.bo.Coordonnees;
  */
 public class MowersBag {
 
-	private Coordonnees border;
+	private Point border;
 	
 	private List<MowerAndOrdersWrapper> mowerAndOrders;
 
-	public Coordonnees getBorder() {
+	public Point getBorder() {
 		return border;
 	}
 
-	public void setBorder(Coordonnees border) {
+	public void setBorder(Point border) {
 		this.border = border;
 	}
 

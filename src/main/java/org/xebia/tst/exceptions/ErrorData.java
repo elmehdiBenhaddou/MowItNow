@@ -10,8 +10,6 @@ import org.springframework.http.HttpStatus;
  */
 public class ErrorData {
 
-	
-	
 	private HttpStatus  status;
 	
 	private String idError;

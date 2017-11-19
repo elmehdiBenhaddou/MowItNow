@@ -49,9 +49,9 @@ public class MowersFileParserImplTest {
 		    assertEquals(mowersBag.getMowerAndOrders().size(), 3);
 		    assertEquals(mowersBag.getBorder().getX(), 5);
 		    assertEquals(mowersBag.getMowerAndOrders().get(0).getMower().getOrientation(), Orientation.N);
-		    assertEquals(mowersBag.getMowerAndOrders().get(0).getMower().getCoordonnees().getX(), 1);
-		    assertEquals(mowersBag.getMowerAndOrders().get(0).getMower().getCoordonnees().getY(), 2);
-		    assertEquals(mowersBag.getMowerAndOrders().get(2).getMower().getCoordonnees().getY(), 4);
+		    assertEquals(mowersBag.getMowerAndOrders().get(0).getMower().getCoordinates().getX(), 1);
+		    assertEquals(mowersBag.getMowerAndOrders().get(0).getMower().getCoordinates().getY(), 2);
+		    assertEquals(mowersBag.getMowerAndOrders().get(2).getMower().getCoordinates().getY(), 4);
 	}
 	
 	@Test

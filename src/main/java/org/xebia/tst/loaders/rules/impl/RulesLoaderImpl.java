@@ -15,7 +15,7 @@ import org.xebia.tst.loaders.rules.RulesLoader;
 
 
 /**
- * 
+ * implementation du chargeur des regles depuis le system de fichier
  * 
  * @author elmehdi
  *
@@ -25,10 +25,19 @@ public class RulesLoaderImpl implements RulesLoader{
 	
 	@Value("${prop.rule.definition.pattern}")
 	private String ruleDefPattern;
-
-	protected static final Logger LOGGER = Logger.getLogger(RulesLoaderImpl.class.getName());
+	
+	@Value("${prop.rules.file.ext}")
+	private String rulesFileExt;
+	
+	
+    static final Logger LOGGER = Logger.getLogger(RulesLoaderImpl.class.getName());
 	  
 	public Rules loadRules() {
+		if(!XebiaTstApplication.RULES_FILE_PATH.endsWith(rulesFileExt)){
+			LOGGER.error("==============> Error to start application : Rules file extension error ");
+			//stop le processus
+			System.exit(1);
+		}
 		Rules rules=new Rules();
 		try (Stream<String> stream = Files.lines(Paths.get(XebiaTstApplication.RULES_FILE_PATH))) {
 			stream.forEach(line -> {

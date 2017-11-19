@@ -14,26 +14,26 @@ package org.xebia.tst.bo;
 
 public class Mower {
 
-	private Coordonnees coordonnees;
+	private Point coordinates;
 	
 	private Orientation orientation;
 	
 	private boolean stoped;
 
 
-	public Mower(Coordonnees coordonnees, Orientation orientation, boolean stoped) {
+	public Mower(Point coordinates, Orientation orientation, boolean stoped) {
 		super();
-		this.coordonnees = coordonnees;
+		this.coordinates = coordinates;
 		this.orientation = orientation;
 		this.stoped = stoped;
 	}
 
-	public Coordonnees getCoordonnees() {
-		return coordonnees;
+	public Point getCoordinates() {
+		return coordinates;
 	}
 
-	public void setCoordonnees(Coordonnees coordonnees) {
-		this.coordonnees = coordonnees;
+	public void setCoordinates(Point coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	public Orientation getOrientation() {
@@ -60,23 +60,23 @@ public class Mower {
 	
 	  switch (this.orientation) {
 	         case  N :
-	            coordonnees.moveToNorth();
+	            coordinates.moveToNorth();
 	            break;
 	         case  W :
-		            coordonnees.moveToWest();
+		            coordinates.moveToWest();
 		            break;
 	         case  S :
-		            coordonnees.moveToSouth();
+		            coordinates.moveToSouth();
 		            break;
 	         case  E :
-		            coordonnees.moveToEast();
+		            coordinates.moveToEast();
 		            break;       
 	  }
 	}
 
 	@Override
 	public String toString() {
-		return this.coordonnees.getX()+" "+this.coordonnees.getY()+" "+this.orientation.toString();
+		return this.coordinates.getX()+" "+this.coordinates.getY()+" "+this.orientation.toString();
 	}
 	
 	

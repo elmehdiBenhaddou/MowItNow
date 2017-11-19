@@ -1,10 +1,10 @@
 package org.xebia.tst.exceptions;
 
 public class ErrorsMessages {
-
-	
 	
 	public static String EMPTY_FILE_ERROR_MSG ="Empty file";
+	
+	public static String EXT_FILE_ERROR_MSG ="File extension incorrect";
 	
 	public static String FILE_DEF_ERROR_MSG ="File definition error";
 	

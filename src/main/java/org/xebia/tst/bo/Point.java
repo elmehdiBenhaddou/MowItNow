@@ -8,7 +8,7 @@ package org.xebia.tst.bo;
  * @author elmehdi
  *
  */
-public class Coordonnees {
+public class Point {
 
 	/**
 	 * axe des abscisses
@@ -21,7 +21,7 @@ public class Coordonnees {
 	private int y;
 	
 	
-	public Coordonnees(int x, int y) {
+	public Point(int x, int y) {
 		super();
 		this.x = x;
 		this.y = y;

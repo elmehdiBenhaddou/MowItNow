@@ -21,9 +21,7 @@ public class XebiaTstApplication {
 	  
 		public static void main(String[] args) throws Exception {
 			//set rules path file
-			 //RULES_FILE_PATH=args[0];
-			 //MOWERS_INIT_FILE_PATH=args[1];
-			 RULES_FILE_PATH="C:\\Users\\elmehdi\\Desktop\\rules.txt";
+			 RULES_FILE_PATH=args[0];
 			 ApplicationContext app =SpringApplication.run(XebiaTstApplication.class, args);
 			 RulesLoader rulesLoader = app.getBean(RulesLoaderImpl.class);
 			//chargement du fichier de regles

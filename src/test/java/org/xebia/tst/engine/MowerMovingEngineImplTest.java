@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.xebia.tst.bo.Coordonnees;
+import org.xebia.tst.bo.Point;
 import org.xebia.tst.bo.Mower;
 import org.xebia.tst.bo.Orientation;
 import org.xebia.tst.engine.impl.MowerMovingEngineImpl;
@@ -46,36 +46,36 @@ public class MowerMovingEngineImplTest {
   
   @Test
   public void test_startMovingMower() {
-	  Coordonnees  coordonneesBorder=new Coordonnees(5, 5);
-	  Coordonnees coordonnees =new Coordonnees(1, 2);
-	  Mower  mower = new Mower(coordonnees, Orientation.N, false);
-	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAA".toCharArray(), coordonneesBorder);
-	  assertEquals(mower.getCoordonnees().getX(), 1);
-	  assertEquals(mower.getCoordonnees().getY(), 3);
+	  Point borderCoordinates=new Point(5, 5);
+	  Point coordinates =new Point(1, 2);
+	  Mower  mower = new Mower(coordinates, Orientation.N, false);
+	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAA".toCharArray(), borderCoordinates);
+	  assertEquals(mower.getCoordinates().getX(), 1);
+	  assertEquals(mower.getCoordinates().getY(), 3);
 	  assertEquals(mower.getOrientation(), Orientation.N);
 	  assertEquals(mower.isStoped(), false);
   }
   
   @Test
   public void test_startMovingMower_mower_outside() {
-	  Coordonnees  coordonneesBorder=new Coordonnees(5, 5);
-	  Coordonnees coordonnees =new Coordonnees(1, 2);
-	  Mower  mower = new Mower(coordonnees, Orientation.N, false);
-	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAAAAA".toCharArray(), coordonneesBorder);
-	  assertEquals(mower.getCoordonnees().getX(), 1);
-	  assertEquals(mower.getCoordonnees().getY(), 6);
+	  Point  borderCoordinates=new Point(5, 5);
+	  Point coordinates =new Point(1, 2);
+	  Mower  mower = new Mower(coordinates, Orientation.N, false);
+	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAAAAA".toCharArray(), borderCoordinates);
+	  assertEquals(mower.getCoordinates().getX(), 1);
+	  assertEquals(mower.getCoordinates().getY(), 6);
 	  assertEquals(mower.getOrientation(), Orientation.N);
 	  assertEquals(mower.isStoped(), true);
   }
   
   @Test
   public void test_startMovingMower_mower_outside_in_creation() {
-	  Coordonnees  coordonneesBorder=new Coordonnees(5, 5);
-	  Coordonnees coordonnees =new Coordonnees(6, 2);
-	  Mower  mower = new Mower(coordonnees, Orientation.N, false);
-	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAAAAA".toCharArray(), coordonneesBorder);
-	  assertEquals(mower.getCoordonnees().getX(), 6);
-	  assertEquals(mower.getCoordonnees().getY(), 2);
+	  Point  borderCoordinates=new Point(5, 5);
+	  Point coordinates =new Point(6, 2);
+	  Mower  mower = new Mower(coordinates, Orientation.N, false);
+	  mower = mowerMovingEngine.startMovingMower(rules, mower, "GAGAGAGAAAAA".toCharArray(), borderCoordinates);
+	  assertEquals(mower.getCoordinates().getX(), 6);
+	  assertEquals(mower.getCoordinates().getY(), 2);
 	  assertEquals(mower.getOrientation(), Orientation.N);
 	  assertEquals(mower.isStoped(), true);
   }

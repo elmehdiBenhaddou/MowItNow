@@ -1,6 +1,6 @@
 package org.xebia.tst.engine;
 
-import org.xebia.tst.bo.Coordonnees;
+import org.xebia.tst.bo.Point;
 import org.xebia.tst.bo.Mower;
 import org.xebia.tst.loaders.rules.Rules;
 
@@ -21,5 +21,5 @@ public interface MowerMovingEngine {
 	 * @param borderCoord
 	 * @return
 	 */
-	 Mower startMovingMower(Rules rules ,Mower mower , char[] commandes,Coordonnees borderCoord);
+	 Mower startMovingMower(Rules rules ,Mower mower , char[] commandes,Point borderCoord);
 }
