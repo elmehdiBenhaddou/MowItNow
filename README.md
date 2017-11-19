@@ -20,12 +20,13 @@ To build and run the appli :
      -method POST
      -url:http://yourHost:8080/v1/mowItNow/
      -json message example:
+     
+     
+     
       {
 	"borderX" : "5",
 	"borderY" : "5",
-
     "mowers" :	[
-		
 		{
 			"x" :"1",
 			"y" : "2",
@@ -39,4 +40,4 @@ To build and run the appli :
 			"orders" : "AADAADADDA"
 		}
 		]
-}
+     }
