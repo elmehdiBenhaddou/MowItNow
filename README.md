@@ -1,6 +1,8 @@
 # MowItNow
 
-
+Techno:
+ Java 8 , spring boot
+ 
 To build and run the appli :
   1- get the source from repo :
       git clone https://github.com/elmehdiBenhaddou/MowItNow.git
@@ -14,3 +16,27 @@ To build and run the appli :
    
   5-and go to http://yourHost:8080/upload 
        
+  6-to send json message :
+     -method POST
+     -url:http://yourHost:8080/v1/mowItNow/
+     -json message example:
+      {
+	"borderX" : "5",
+	"borderY" : "5",
+
+    "mowers" :	[
+		
+		{
+			"x" :"1",
+			"y" : "2",
+			"orientation" : "N",
+			"orders" : "GAGAGAGAA"
+		},
+			{
+			"x" :"3",
+			"y" : "3",
+			"orientation" : "E",
+			"orders" : "AADAADADDA"
+		}
+		]
+}
